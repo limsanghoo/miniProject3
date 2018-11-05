@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-
-<%@ page import="com.model2.mvc.service.domain.Purchase" %>    
-
-<%
-	Purchase purchase=(Purchase)request.getAttribute("Purchase");
-%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 
@@ -24,7 +18,7 @@
 
 <body bgcolor="#ffffff" text="#000000">
 
-<form name="updatePurchase" method="post"	action="/updatePurchase.do?tranNo=<%=purchase.getTranNo()%>">
+<form name="updatePurchase" method="post"	action="/updatePurchase.do?tranNo=${purchase.tranNo}">
 
 <table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
 	<tr>
@@ -52,9 +46,9 @@
 	<tr>
 		<td width="104" class="ct_write">구매자아이디</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01"><%=purchase.getBuyer().getUserId() %></td>
+		<td class="ct_write01">${purchase.buyer.userId}</td>
 
-		<input type="hidden" name="buyerId" value="<%=purchase.getBuyer().getUserId() %>">
+		<input type="hidden" name="buyerId" value="${purchase.buyer.userId}">
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -78,7 +72,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverName" 	class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="<%=purchase.getReceiverName() %>" />
+							maxLength="20" value="${purchase.receiverName}" />
 		</td>
 	</tr>
 	<tr>
@@ -89,7 +83,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverPhone" class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="<%=purchase.getReceiverPhone() %>" />
+							maxLength="20" value="${purchase.receiverPhone}" />
 		</td>
 	</tr>
 
@@ -101,7 +95,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverAddr" class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="<%=purchase.getDivyAddr() %>" />
+							maxLength="20" value="${purchase.divyAddr}" />
 		</td>
 	</tr>
 	<tr>
@@ -112,7 +106,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverRequest" 	class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="<%=purchase.getDivyRequest() %>"/>
+							maxLength="20" value="${purchase.divyRequest}"/>
 		</td>
 	</tr>
 	<tr>
