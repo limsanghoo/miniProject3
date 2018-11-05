@@ -10,12 +10,7 @@
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
-<script type="text/javascript">
-	function fncGetPurchaseList(currentPage) {
-		document.getElementById("currentPage").value = currentPage;
-		document.detailForm.submit();
-	}
-</script>
+
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
@@ -65,10 +60,10 @@
 	<c:set var="i" value="${ i+1 }" />
 	<tr class="ct_list_pop">
 		<td align="center">${i}</td>
-
+				<a href="/getPurchase.do?tranNo=${purchase.tranNo}">${i}</a>
 		<td></td>
 		<td align="left">
-			<a href="/getUser.do?userId=${purchase.buyer.userId}">${purchase.buyer.userId}</a>
+			<a href="/getUser.do?userId=${purchase.buyer.userId}">${purchase.buyer.userName}</a>
 		</td>
 		<td></td>
 		<td align="left">${purchase.receiverName}</td>
@@ -93,7 +88,7 @@
 		
 		<td></td>
 		<c:if test="${purchase.tranCode.trim.equals("2") }">
-		<td align="left"> <a href="/updateTranCodeByProd.do?prodNo=${purchase.purchaseProd().prodNo()}&tranCode=3">¹°°ÇµµÂø</a>
+		<td align="left"> <a href="/updateTranCodeByProd.do?prodNo=${purchase.tranNo}&tranCode=3">¹°°ÇµµÂø</a>
 		</td>
 		</c:if>
 		

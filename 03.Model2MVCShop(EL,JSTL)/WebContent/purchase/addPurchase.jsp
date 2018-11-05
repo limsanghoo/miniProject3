@@ -17,12 +17,12 @@
 <table border=1>
 	<tr>
 		<td>물품번호</td>
-		<td>${product.prodNo}</td>
+		<td>${purchase.purchaseProd.prodNo}</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>구매자아이디</td>
-		<td>${user.userId}</td>
+		<td>${purchase.buyer.userId}</td>
 		<td></td>
 	</tr>
 	<tr>

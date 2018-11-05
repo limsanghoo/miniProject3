@@ -57,8 +57,7 @@
 		<td width="104" class="ct_write">구매방법</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<select 	name="paymentOption" 	class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20">
+			<select 	name="paymentOption" 	class="ct_input_g" style="width: 100px; height: 19px" maxLength="20">
 				<option value="1" selected="selected">현금구매</option>
 				<option value="2">신용구매</option>
 			</select>
