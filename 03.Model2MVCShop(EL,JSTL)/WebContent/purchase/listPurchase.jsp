@@ -10,6 +10,15 @@
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
+<script type="text/javascript">
+
+function fncGetList(currentPage) {
+	document.getElementById("currentPage").value = currentPage;
+   	document.detailForm.submit();		
+}
+
+
+</script>
 
 </head>
 
@@ -58,12 +67,13 @@
 	<c:set var="i" value="0" />
 	<c:forEach var="purchase" items="${list}">
 	<c:set var="i" value="${ i+1 }" />
+	
 	<tr class="ct_list_pop">
-		<td align="center">${i}</td>
+		<td align="center">
 				<a href="/getPurchase.do?tranNo=${purchase.tranNo}">${i}</a>
 		<td></td>
 		<td align="left">
-			<a href="/getUser.do?userId=${purchase.buyer.userId}">${purchase.buyer.userName}</a>
+			<a href="/getUser.do?userId=${purchase.buyer.userId}">${purchase.buyer.userId}</a>
 		</td>
 		<td></td>
 		<td align="left">${purchase.receiverName}</td>
@@ -74,20 +84,20 @@
 	
 		<td align="left"> 
 		
-		<c:if test="${purchase.tranCode.trim.equals("1") }">
+		<c:if test="${purchase.tranCode=='1  ' }">
 		현재 구매완료 상태입니다.
 		</c:if>
 		
-		<c:if test="${purchase.tranCode.trim.equals("2") }">
+		<c:if test="${purchase.tranCode=='2  ' }">
 		현재 배송중 상태입니다.
 		</c:if>
 		
-		<c:if test="${purchase.tranCode.trim.equals("3") }">
+		<c:if test="${purchase.tranCode=='3  ' }">
 		현재 배송완료 상태입니다.
 		</c:if>
 		
 		<td></td>
-		<c:if test="${purchase.tranCode.trim.equals("2") }">
+		<c:if test="${purchase.tranCode=='2  '}">
 		<td align="left"> <a href="/updateTranCodeByProd.do?prodNo=${purchase.tranNo}&tranCode=3">물건도착</a>
 		</td>
 		</c:if>

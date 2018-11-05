@@ -69,10 +69,10 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 		
-		<c:if test="${purchase.paymentOption.equals("1") }">
+		<c:if test="${purchase.paymentOption=='1  ' }">
 		현금구매
 		</c:if>
-		<c:if test="${purchase.paymentOption}">
+		<c:if test="${purchase.paymentOption=='2  '}">
 		신용구매
 		</c:if>
 	
@@ -93,7 +93,7 @@
 	<tr>
 		<td width="104" class="ct_write">구매자연락처</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">%{purchase.receiverPhone}</td>
+		<td class="ct_write01">${purchase.receiverPhone}</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>

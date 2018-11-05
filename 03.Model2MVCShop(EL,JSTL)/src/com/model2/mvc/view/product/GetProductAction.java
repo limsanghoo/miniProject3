@@ -1,5 +1,6 @@
 package com.model2.mvc.view.product;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +25,26 @@ public class GetProductAction extends Action{
 		
 		request.setAttribute("product", product);
 		
-
+		boolean added = false;
+		String history = null;
+		Cookie[] cookies = request.getCookies();
+	
+		if (cookies!=null && cookies.length > 0) {
+			for (int i = 0; i < cookies.length; i++) {
+				Cookie cookie = cookies[i];
+				if (cookie.getName().equals("history")) {
+					history = cookie.getValue();
+					history+=","+prodNo;
+					cookie.setValue(history);
+					response.addCookie(cookie);
+					added=true;
+				}
+			}
+			if (!added) {
+				Cookie cookie = new Cookie("history",prodNo+"");
+				response.addCookie(cookie);
+			}
+		} 
 		
 		
 
